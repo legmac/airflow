@@ -10,6 +10,7 @@ from airflow.providers.slack.hooks.slack_webhook import SlackWebhookHook
 
 SLACK_WEBHOOK_URL = "---PASTE-YOUR-WEBHOOK-HERE---"
 
+# https://www.youtube.com/watch?v=2Cbz9Z06KJo&list=PLzKRcZrsJN_xcKKyKn18K7sWu5TTtdywh&index=11
 
 def alert_slack_channel(context: dict):
     """ Alert to slack channel on failed dag
