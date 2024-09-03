@@ -27,8 +27,8 @@ with DAG(
     def download_csv_from_s3(**kwargs):
         """Download CSV files from S3."""
         s3_hook = S3Hook(aws_conn_id='my_s3_conn')  # Replace 'my_s3_conn' with your S3 connection ID in Airflow
-        bucket_name = 'your-bucket-name'  # Replace with your S3 bucket name
-        prefix = 'path/to/csv/'  # S3 prefix where CSV files are located
+        bucket_name = 'your-bucket-name'            # Replace with your S3 bucket name
+        prefix = 'path/to/csv/'                     # S3 prefix where CSV files are located
 
         # List files in the bucket with the specified prefix
         files = s3_hook.list_keys(bucket_name=bucket_name, prefix=prefix)
