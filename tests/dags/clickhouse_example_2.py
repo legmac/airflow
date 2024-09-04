@@ -1,7 +1,8 @@
 from airflow import DAG
-from airflow.providers.clickhouse.operators.clickhouse import ClickHouseOperator
 from airflow.utils.dates import days_ago
 from airflow.models import Variable
+from airflow.providers.clickhouse.operators.clickhouse import ClickHouseOperator
+
 
 def get_airflow_init():
     # Implement your airflow initialization logic here
