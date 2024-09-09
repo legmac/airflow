@@ -34,8 +34,8 @@ download_csv_task = PythonOperator(
     task_id='download_csv_task',
     python_callable=download_csv,
     op_kwargs={
-        'url': 'https://example.com/data.csv',  # Replace with actual CSV URL
-        'output_path': '/path/to/save/data.csv',
+        'url': json,  # Replace with actual CSV URL
+        'output_path': 'event-data.json',
     },
 )
 
