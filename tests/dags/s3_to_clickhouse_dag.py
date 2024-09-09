@@ -96,5 +96,5 @@ with DAG(
         provide_context=True,
     )
 
-    # Set task dependencies
-    info >> download_csv_task >> parse_and_upload_task
+    # Set task dependencies info >>
+    download_csv_task >> parse_and_upload_task
