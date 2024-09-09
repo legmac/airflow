@@ -5,6 +5,7 @@ from clickhouse_driver import Client
 from datetime import datetime, timedelta
 import pandas as pd
 from io import StringIO
+from airflow.operators.bash_operator import BashOperator
 
 # Default arguments for the DAG
 default_args = {
@@ -23,6 +24,12 @@ with DAG(
     start_date=datetime(2023, 1, 1),
     catchup=False,
 ) as dag:
+    info_command = "hostname"
+
+    info = BashOperator(
+    task_id='info',
+    bash_command=info_command,
+    dag = dag)
 
     def download_csv_from_s3(**kwargs):
         """Download CSV files from S3."""
@@ -90,4 +97,4 @@ with DAG(
     )
 
     # Set task dependencies
-    download_csv_task >> parse_and_upload_task
+    info >> download_csv_task >> parse_and_upload_task
