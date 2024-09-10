@@ -3,6 +3,7 @@ from datetime import datetime
 from airflow.models import DAG
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
+import requests
 
 DEFAULT_DATE = datetime(2024, 1, 1)
 
@@ -14,6 +15,6 @@ with open('event-data.json', 'wb') as f:
 
 dag = DAG(dag_id='bash_operator', start_date=DEFAULT_DATE, schedule=None)
 task = BashOperator(task_id='hostname', bash_command='hostname', dag=dag)
-task = BashOperator(task_id='hostname', bash_command='hostname', dag=dag)
+task = BashOperator(task_id='pull', bash_command='hostname', dag=dag)
 
 
