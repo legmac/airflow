@@ -34,7 +34,7 @@ with DAG(
     def parse_and_upload_to_clickhouse():
         # Parse CSV data
         users_df = pd.read_csv('users.csv')
-        client = Client(host='104.248.125.24', port='8123', user='default', password='TMUXp4Wn', database='U1_DWH')
+        client = Client(host='104.248.125.24', port='9000', user='default', password='TMUXp4Wn', database='U1_DWH')
         client.execute('''
             CREATE TABLE IF NOT EXISTS users (
                 id Int32,
